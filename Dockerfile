@@ -13,22 +13,12 @@ RUN apk --no-cache add \
 #  && curl -LO "https://github.com/DataDog/dd-trace-php/releases/latest/download/datadog-setup.php" \
 #  && php datadog-setup.php --php-bin=all --enable-appsec --enable-profiling
 
-RUN apk add supervisor \
+RUN apk --no-cache add supervisor \
  && mkdir -p /var/log/supervisor
 
-# RUN install-php-extensions bcmath
-# RUN install-php-extensions rdkafka
-# RUN install-php-extensions opcache
-# RUN install-php-extensions xdebug
-# RUN install-php-extensions calendar
-# RUN install-php-extensions gd
-
-RUN install-php-extensions bcmath & \
-    install-php-extensions rdkafka & \
-    install-php-extensions opcache & \
-    wait
-
-RUN install-php-extensions xdebug & \
-    install-php-extensions calendar & \
-    install-php-extensions gd & \
-    wait
+RUN install-php-extensions bcmath
+RUN install-php-extensions rdkafka
+RUN install-php-extensions opcache
+RUN install-php-extensions xdebug
+RUN install-php-extensions calendar
+RUN install-php-extensions gd
