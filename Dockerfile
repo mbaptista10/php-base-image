@@ -16,9 +16,19 @@ RUN apk --no-cache add \
 RUN apk add supervisor \
  && mkdir -p /var/log/supervisor
 
-RUN install-php-extensions bcmath
-RUN install-php-extensions rdkafka
-RUN install-php-extensions opcache
-RUN install-php-extensions xdebug
-RUN install-php-extensions calendar
-RUN install-php-extensions gd
+# RUN install-php-extensions bcmath
+# RUN install-php-extensions rdkafka
+# RUN install-php-extensions opcache
+# RUN install-php-extensions xdebug
+# RUN install-php-extensions calendar
+# RUN install-php-extensions gd
+
+RUN install-php-extensions bcmath & \
+    install-php-extensions rdkafka & \
+    install-php-extensions opcache & \
+    wait
+
+RUN install-php-extensions xdebug & \
+    install-php-extensions calendar & \
+    install-php-extensions gd & \
+    wait
