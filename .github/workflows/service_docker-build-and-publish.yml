@@ -3,12 +3,16 @@ name: ci
 on:
   push:
     branches:
-      - 'main'
+      - '8.2-cli'
+      - '8.2-fpm-nginx'
 
 jobs:
-  docker:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
+      -
+        name: GitHub Environment Variables Action
+        uses: FranzDiebold/github-env-vars-action@v2.7.0
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -26,7 +30,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: mbaptista11/php-base-image:test
+          tags: mbaptista11/php-base-image:$CI_ACTION_REF_NAME
           platforms: |
             linux/amd64
             linux/arm/v7
