@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+    image_base:
+        container_name: image_base
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command: ["tail", "-f", "/dev/null"]
+        
+
+    
