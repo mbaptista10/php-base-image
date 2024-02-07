@@ -23,20 +23,12 @@ RUN apk add supervisor \
 # RUN install-php-extensions calendar
 # RUN install-php-extensions gd
 
-# RUN install-php-extensions bcmath & \
-#     install-php-extensions rdkafka & \
-#     install-php-extensions opcache & \
-#     wait
-
-# RUN install-php-extensions xdebug & \
-#     install-php-extensions calendar & \
-#     install-php-extensions gd & \
-#     wait
-
 RUN install-php-extensions bcmath & \
     install-php-extensions rdkafka & \
     install-php-extensions opcache & \
-    install-php-extensions xdebug & \
+    wait
+
+RUN install-php-extensions xdebug & \
     install-php-extensions calendar & \
     install-php-extensions gd & \
     wait
