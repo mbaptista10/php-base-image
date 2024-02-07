@@ -9,9 +9,9 @@ RUN apk --no-cache add \
     freetype \
     freetype-dev 
     
-RUN cd /tmp/ \
- && curl -LO "https://github.com/DataDog/dd-trace-php/releases/latest/download/datadog-setup.php" \
- && php datadog-setup.php --php-bin=all --enable-appsec --enable-profiling
+# RUN cd /tmp/ \
+#  && curl -LO "https://github.com/DataDog/dd-trace-php/releases/latest/download/datadog-setup.php" \
+#  && php datadog-setup.php --php-bin=all --enable-appsec --enable-profiling
 
 RUN apk add supervisor \
  && mkdir -p /var/log/supervisor
