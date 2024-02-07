@@ -26,7 +26,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: user/app:latest
+          tags: mbaptista11/php-base-image:test
           platforms: |
             linux/amd64
             linux/arm/v7
