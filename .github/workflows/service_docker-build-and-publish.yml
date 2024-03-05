@@ -3,8 +3,12 @@ name: ci
 on:
   push:
     branches:
+      - '8.1-cli'
+      - '8.1-fpm-nginx'
       - '8.2-cli'
       - '8.2-fpm-nginx'
+      - '8.3-cli'
+      - '8.3-fpm-nginx'
 
 jobs:
   build_and_deploy:
