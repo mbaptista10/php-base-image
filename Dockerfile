@@ -1,4 +1,4 @@
-FROM serversideup/php:beta-8.3-cli-alpine
+FROM serversideup/php:beta-8.1-cli-alpine
 
 RUN apk --no-cache add \
     libgcc \
